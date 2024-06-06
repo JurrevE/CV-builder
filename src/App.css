@@ -1,0 +1,28 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  background: #fafafa;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.userInputs {
+  margin: 1rem;
+}
+.CV {
+  margin: 1rem;
+}
+.header {
+  height: 20%;
+}
+.generalInputForm {
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
