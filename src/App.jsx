@@ -2,17 +2,33 @@ import React, { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Education from "./components/Education";
+
 function App() {
-  const [FormData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     Name: "",
     Email: "",
     Phone: "",
-    Adress: "",
+    Address: "",
+  });
+
+  const [educationData, setEducationData] = useState({
+    Timespan: "",
+    Degree: "",
+    City: "",
+    Organization: "",
   });
 
   function handleChange(event) {
     const { name, value } = event.target;
     setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  }
+
+  function handleChangeEducation(event) {
+    const { name, value } = event.target;
+    setEducationData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -29,7 +45,7 @@ function App() {
               <input
                 type="text"
                 name="Name"
-                value={FormData.name}
+                value={formData.Name}
                 onChange={handleChange}
                 placeholder="Enter your firstname"
               />
@@ -39,7 +55,7 @@ function App() {
               <input
                 type="email"
                 name="Email"
-                value={FormData.Email}
+                value={formData.Email}
                 onChange={handleChange}
                 placeholder="Enter your email"
               />
@@ -49,7 +65,7 @@ function App() {
               <input
                 type="tel"
                 name="Phone"
-                value={FormData.Phone}
+                value={formData.Phone}
                 onChange={handleChange}
                 placeholder="Enter your phone number"
               />
@@ -59,9 +75,55 @@ function App() {
               <input
                 type="text"
                 name="Address"
-                value={FormData.Address}
+                value={formData.Address}
                 onChange={handleChange}
                 placeholder="Enter your address"
+              />
+            </div>
+          </form>
+        </div>
+
+        <div className="educationInputs">
+          Education information:
+          <form className="EducationalInputForm">
+            <div className="formGroup">
+              <label htmlFor="Timespan">Timespan:</label>
+              <input
+                type="text"
+                name="Timespan"
+                value={educationData.Timespan}
+                onChange={handleChangeEducation}
+                placeholder="Enter the years that you studied"
+              />
+            </div>
+            <div className="formGroup">
+              <label htmlFor="Degree">Degree:</label>
+              <input
+                type="text"
+                name="Degree"
+                value={educationData.Degree}
+                onChange={handleChangeEducation}
+                placeholder="Enter what degree you studied"
+              />
+            </div>
+            <div className="formGroup">
+              <label htmlFor="City">City:</label>
+              <input
+                type="text"
+                name="City"
+                value={educationData.City}
+                onChange={handleChangeEducation}
+                placeholder="Enter where you studied"
+              />
+            </div>
+            <div className="formGroup">
+              <label htmlFor="Organization">Organization:</label>
+              <input
+                type="text"
+                name="Organization"
+                value={educationData.Organization}
+                onChange={handleChangeEducation}
+                placeholder="Enter the name of your Organization"
               />
             </div>
           </form>
@@ -70,10 +132,10 @@ function App() {
 
       <div className="CV">
         <Header
-          name={FormData.Name}
-          email={FormData.Email}
-          phone={FormData.Phone}
-          adress={FormData.Adress}
+          name={formData.Name}
+          email={formData.Email}
+          phone={formData.Phone}
+          address={formData.Address}
         />
         <Education />
       </div>
