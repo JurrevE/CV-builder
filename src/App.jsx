@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-
+import Education from "./components/Education";
 function App() {
   const [FormData, setFormData] = useState({
     Name: "",
@@ -21,44 +21,51 @@ function App() {
   return (
     <div className="App">
       <div className="userInputs">
-        <form className="generalInputForm">
-          <label htmlFor="Name">
-            Firstname:
-            <input
-              type="text"
-              name="Name"
-              value={FormData.name}
-              onChange={handleChange}
-            />
-          </label>
-          <label htmlFor="Email">
-            Email:
-            <input
-              type="Email"
-              name="Email"
-              value={FormData.Email}
-              onChange={handleChange}
-            />
-          </label>
-          <label htmlFor="Phone Number:">
-            Phone Number:
-            <input
-              type="tel"
-              name="Phone"
-              value={FormData.Phone}
-              onChange={handleChange}
-            />
-          </label>
-          <label htmlFor="Adress">
-            Adress:
-            <input
-              type="text"
-              name="Adress"
-              value={FormData.Adress}
-              onChange={handleChange}
-            />
-          </label>
-        </form>
+        <div className="generalInputs">
+          General information:
+          <form className="generalInputForm">
+            <div className="formGroup">
+              <label htmlFor="Name">Firstname:</label>
+              <input
+                type="text"
+                name="Name"
+                value={FormData.name}
+                onChange={handleChange}
+                placeholder="Enter your firstname"
+              />
+            </div>
+            <div className="formGroup">
+              <label htmlFor="Email">Email:</label>
+              <input
+                type="email"
+                name="Email"
+                value={FormData.Email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+              />
+            </div>
+            <div className="formGroup">
+              <label htmlFor="Phone">Phone Number:</label>
+              <input
+                type="tel"
+                name="Phone"
+                value={FormData.Phone}
+                onChange={handleChange}
+                placeholder="Enter your phone number"
+              />
+            </div>
+            <div className="formGroup">
+              <label htmlFor="Address">Address:</label>
+              <input
+                type="text"
+                name="Address"
+                value={FormData.Address}
+                onChange={handleChange}
+                placeholder="Enter your address"
+              />
+            </div>
+          </form>
+        </div>
       </div>
 
       <div className="CV">
@@ -68,6 +75,7 @@ function App() {
           phone={FormData.Phone}
           adress={FormData.Adress}
         />
+        <Education />
       </div>
     </div>
   );

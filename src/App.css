@@ -19,10 +19,66 @@
 }
 .header {
   height: 20%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  background-color: lightgreen;
+  border-radius: 10px;
 }
+
+.fullname {
+  background-color: lightgreen;
+}
+
+.otherinfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.otherinfo h3 {
+  background-color: lightgreen; /* Set background color of h3 elements */
+}
+
 .generalInputForm {
-  height: 20rem;
+  height: auto;
+  width: 80%;
+  max-width: 400px; /* Limiting the width for better readability */
+  margin: 0 auto; /* Centering the form */
+}
+
+.generalInputs {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border-color: dodgerblue;
+}
+
+.education {
+  height: 40vh;
 }
