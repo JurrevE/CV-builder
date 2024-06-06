@@ -8,7 +8,7 @@ export default function Header(props) {
         <h3 className="otherinfoh3">{props.email || "yourmom@gmail.com"}</h3>
         <h3 className="otherinfoh3">{props.phone || "06 16294209"}</h3>
         <h3 className="otherinfoh3">
-          {props.adress || "Maasstraat 123, 1823XG Alkmaar"}
+          {props.address || "Maasstraat 123, 1823XG Alkmaar"}
         </h3>
       </div>
     </div>

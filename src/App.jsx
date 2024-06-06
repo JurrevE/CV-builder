@@ -41,13 +41,13 @@ function App() {
           General information:
           <form className="generalInputForm">
             <div className="formGroup">
-              <label htmlFor="Name">Firstname:</label>
+              <label htmlFor="Name">Name:</label>
               <input
                 type="text"
                 name="Name"
                 value={formData.Name}
                 onChange={handleChange}
-                placeholder="Enter your firstname"
+                placeholder="Enter your name"
               />
             </div>
             <div className="formGroup">

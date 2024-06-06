@@ -34,6 +34,8 @@
 .otherinfo {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  background-color: lightgreen;
 }
 .otherinfo h3 {
   background-color: lightgreen; /* Set background color of h3 elements */
