@@ -1,19 +1,17 @@
-/* Reset default margin and padding */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Whole app layout */
 .App {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   height: 100vh;
   padding: 20px;
-  background-color: #f0f0f0; /* Light background color */
-  font-family: Arial, sans-serif; /* Use a standard sans-serif font */
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
 }
 .header {
   display: flex;
@@ -26,95 +24,91 @@
   justify-content: space-around;
   width: 100%;
 }
-/* Left column for tabs */
+
 .tabs {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-right: 20px; /* Space between tabs and CV */
-  background-color: #fff; /* White background for tabs */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  padding: 20px; /* Padding inside the tabs */
+  margin-right: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .tabs button {
-  background-color: #4caf50; /* Green background for buttons */
-  color: #fff; /* White text color */
+  background-color: #4caf50;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   margin-bottom: 10px;
   cursor: pointer;
-  width: 100%; /* Full width for buttons */
-  text-align: left; /* Left-align text */
-  border-radius: 4px; /* Rounded corners */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .tabs button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #45a049;
 }
 
-/* Right column for CV */
 .CV {
-  flex: 2; /* Take up two-thirds of the available space */
-  background-color: #fff; /* White background for CV */
-  padding: 20px; /* Padding inside the CV section */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  flex: 2;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-left: 2rem;
 }
 
-/* Styling for CV section */
 .CV h2 {
-  margin-bottom: 20px; /* Bottom margin for section titles */
+  margin-bottom: 20px;
 }
 
-/* Form and input styling */
 .userInputs {
-  width: 100%; /* Full width for form inputs */
-  max-width: 400px; /* Max width for form inputs */
+  width: 100%;
+  max-width: 400px;
 }
 
 .userInputs form {
-  background-color: #f9f9f9; /* Light gray background for forms */
-  padding: 20px; /* Padding inside forms */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .userInputs .formGroup {
-  margin-bottom: 15px; /* Bottom margin for form groups */
+  margin-bottom: 15px;
 }
 
 .userInputs label {
-  display: block; /* Display labels as blocks */
-  margin-bottom: 5px; /* Bottom margin for labels */
+  display: block;
+  margin-bottom: 5px;
 }
 
 .userInputs input {
-  width: calc(100% - 12px); /* Full width for inputs minus padding */
-  padding: 8px; /* Padding inside inputs */
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 4px; /* Rounded corners */
-  font-size: 14px; /* Font size for inputs */
+  width: calc(100% - 12px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
 }
 
 .userInputs button[type="button"],
 .userInputs button[type="submit"] {
-  background-color: #4caf50; /* Green background for buttons */
-  color: #fff; /* White text color */
+  background-color: #4caf50;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  border-radius: 4px; /* Rounded corners */
-  font-size: 14px; /* Font size for buttons */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 .userInputs button[type="button"]:hover,
 .userInputs button[type="submit"]:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #45a049;
 }
 
 .educationTitle {
