@@ -1,120 +1,132 @@
+/* Reset default margin and padding */
 * {
-  margin: 0px;
-  padding: 0px;
-  background: #fafafa;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Whole app layout */
 .App {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-}
-
-.userInputs {
-  margin: 1rem;
-}
-.CV {
-  margin: 1rem;
+  padding: 20px;
+  background-color: #f0f0f0; /* Light background color */
+  font-family: Arial, sans-serif; /* Use a standard sans-serif font */
 }
 .header {
-  height: 20%;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: lightgreen;
-  border-radius: 10px;
-}
-
-.fullname {
-  background-color: lightgreen;
 }
 
 .otherinfo {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  background-color: lightgreen;
-}
-.otherinfo h3 {
-  background-color: lightgreen; /* Set background color of h3 elements */
-}
-
-.generalInputForm {
-  height: auto;
-  width: 80%;
-  max-width: 400px; /* Limiting the width for better readability */
-  margin: 0 auto; /* Centering the form */
-}
-
-.generalInputs {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.formGroup {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
+  justify-content: space-around;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 16px;
 }
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus {
-  outline: none;
-  border-color: dodgerblue;
-}
-
-.education {
-  height: 40vh;
-  background-color: lightgrey;
-  border-radius: 10px;
+/* Left column for tabs */
+.tabs {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  margin-right: 20px; /* Space between tabs and CV */
+  background-color: #fff; /* White background for tabs */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px; /* Padding inside the tabs */
+}
+
+.tabs button {
+  background-color: #4caf50; /* Green background for buttons */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 100%; /* Full width for buttons */
+  text-align: left; /* Left-align text */
+  border-radius: 4px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.tabs button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Right column for CV */
+.CV {
+  flex: 2; /* Take up two-thirds of the available space */
+  background-color: #fff; /* White background for CV */
+  padding: 20px; /* Padding inside the CV section */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  margin-left: 2rem;
+}
+
+/* Styling for CV section */
+.CV h2 {
+  margin-bottom: 20px; /* Bottom margin for section titles */
+}
+
+/* Form and input styling */
+.userInputs {
+  width: 100%; /* Full width for form inputs */
+  max-width: 400px; /* Max width for form inputs */
+}
+
+.userInputs form {
+  background-color: #f9f9f9; /* Light gray background for forms */
+  padding: 20px; /* Padding inside forms */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.userInputs .formGroup {
+  margin-bottom: 15px; /* Bottom margin for form groups */
+}
+
+.userInputs label {
+  display: block; /* Display labels as blocks */
+  margin-bottom: 5px; /* Bottom margin for labels */
+}
+
+.userInputs input {
+  width: calc(100% - 12px); /* Full width for inputs minus padding */
+  padding: 8px; /* Padding inside inputs */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 14px; /* Font size for inputs */
+}
+
+.userInputs button[type="button"],
+.userInputs button[type="submit"] {
+  background-color: #4caf50; /* Green background for buttons */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px; /* Rounded corners */
+  font-size: 14px; /* Font size for buttons */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.userInputs button[type="button"]:hover,
+.userInputs button[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
 }
 
 .educationTitle {
-  background-color: lightgrey;
-  margin-top: 1rem;
-  font-size: xx-large;
-}
-.educationInfoDiv {
   display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  background-color: lightgrey;
-  margin-left: 4rem;
-}
-.educationInfo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  font-weight: 700;
+  font-size: xx-large;
+  margin-top: 1rem;
 }
 
-.EducationalInputForm {
-  height: auto;
-  width: 80%;
-  max-width: 400px; /* Limiting the width for better readability */
-  margin: 0 auto; /* Centering the form */
-}
-.educationInputs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.educationEntry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
 }

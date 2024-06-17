@@ -1,24 +1,37 @@
 import React, { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
+import GeneralInfoForm from "./components/GeneralInfoForm";
 import Education from "./components/Education";
+import EducationInfoForm from "./components/EducationInfoForm";
+import EducationList from "./components/EducationList";
 
 function App() {
   const [formData, setFormData] = useState({
-    Name: "",
-    Email: "",
-    Phone: "",
-    Address: "",
+    personalDetails: { Name: "", Email: "", Phone: "", Address: "" },
+    educationArray: [],
+    experienceArray: [],
+    educationTime: "",
+    educationSchool: "",
+    educationDegree: "",
+    educationPlace: "",
+    educationNotes: "", // Added educationNotes field
   });
 
-  const [educationData, setEducationData] = useState({
-    Timespan: "",
-    Degree: "",
-    City: "",
-    Organization: "",
-  });
+  const [activeTab, setActiveTab] = useState("personal");
 
   function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      personalDetails: {
+        ...prevData.personalDetails,
+        [name]: value,
+      },
+    }));
+  }
+
+  function handleEducationChange(event) {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -26,118 +39,90 @@ function App() {
     }));
   }
 
-  function handleChangeEducation(event) {
-    const { name, value } = event.target;
-    setEducationData((prevData) => ({
+  function addEducation() {
+    const newEducation = {
+      Time: formData.educationTime,
+      School: formData.educationSchool,
+      Degree: formData.educationDegree,
+      Place: formData.educationPlace,
+      Notes: formData.educationNotes, // Include notes in education entry
+    };
+
+    setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      educationArray: [...prevData.educationArray, newEducation],
+      educationTime: "",
+      educationSchool: "",
+      educationDegree: "",
+      educationPlace: "",
+      educationNotes: "", // Clear notes after adding
     }));
   }
 
+  function removeEducation(index) {
+    setFormData((prevData) => ({
+      ...prevData,
+      educationArray: prevData.educationArray.filter((_, idx) => idx !== index),
+    }));
+  }
+
+  const switchToPersonalTab = () => {
+    setActiveTab("personal");
+  };
+
+  const switchToEducationTab = () => {
+    setActiveTab("education");
+  };
+
   return (
     <div className="App">
-      <div className="userInputs">
-        <div className="generalInputs">
-          General information:
-          <form className="generalInputForm">
-            <div className="formGroup">
-              <label htmlFor="Name">Name:</label>
-              <input
-                type="text"
-                name="Name"
-                value={formData.Name}
-                onChange={handleChange}
-                placeholder="Enter your name"
-              />
-            </div>
-            <div className="formGroup">
-              <label htmlFor="Email">Email:</label>
-              <input
-                type="email"
-                name="Email"
-                value={formData.Email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-              />
-            </div>
-            <div className="formGroup">
-              <label htmlFor="Phone">Phone Number:</label>
-              <input
-                type="tel"
-                name="Phone"
-                value={formData.Phone}
-                onChange={handleChange}
-                placeholder="Enter your phone number"
-              />
-            </div>
-            <div className="formGroup">
-              <label htmlFor="Address">Address:</label>
-              <input
-                type="text"
-                name="Address"
-                value={formData.Address}
-                onChange={handleChange}
-                placeholder="Enter your address"
-              />
-            </div>
-          </form>
-        </div>
+      <div className="tabs">
+        <button onClick={switchToPersonalTab}>Personal Information</button>
+        <button onClick={switchToEducationTab}>Education</button>
+        {activeTab === "education" && (
+          <EducationList
+            educationArray={formData.educationArray}
+            removeEducation={removeEducation}
+          />
+        )}
+      </div>
 
-        <div className="educationInputs">
-          Education information:
-          <form className="EducationalInputForm">
-            <div className="formGroup">
-              <label htmlFor="Timespan">Timespan:</label>
-              <input
-                type="text"
-                name="Timespan"
-                value={educationData.Timespan}
-                onChange={handleChangeEducation}
-                placeholder="Enter the years that you studied"
-              />
-            </div>
-            <div className="formGroup">
-              <label htmlFor="Degree">Degree:</label>
-              <input
-                type="text"
-                name="Degree"
-                value={educationData.Degree}
-                onChange={handleChangeEducation}
-                placeholder="Enter what degree you studied"
-              />
-            </div>
-            <div className="formGroup">
-              <label htmlFor="City">City:</label>
-              <input
-                type="text"
-                name="City"
-                value={educationData.City}
-                onChange={handleChangeEducation}
-                placeholder="Enter where you studied"
-              />
-            </div>
-            <div className="formGroup">
-              <label htmlFor="Organization">Organization:</label>
-              <input
-                type="text"
-                name="Organization"
-                value={educationData.Organization}
-                onChange={handleChangeEducation}
-                placeholder="Enter the name of your Organization"
-              />
-            </div>
-          </form>
+      <div className="tabContent">
+        <div className="userInputs">
+          {activeTab === "personal" && (
+            <GeneralInfoForm
+              formData={formData.personalDetails}
+              handleChange={handleChange}
+            />
+          )}
+          {activeTab === "education" && (
+            <EducationInfoForm
+              formData={{
+                educationTime: formData.educationTime,
+                educationSchool: formData.educationSchool,
+                educationDegree: formData.educationDegree,
+                educationPlace: formData.educationPlace,
+                educationNotes: formData.educationNotes,
+              }}
+              handleEducationChange={handleEducationChange}
+            />
+          )}
+          {activeTab === "education" && (
+            <button type="button" onClick={addEducation}>
+              Add Education
+            </button>
+          )}
         </div>
       </div>
 
       <div className="CV">
         <Header
-          name={formData.Name}
-          email={formData.Email}
-          phone={formData.Phone}
-          address={formData.Address}
+          name={formData.personalDetails.Name}
+          email={formData.personalDetails.Email}
+          phone={formData.personalDetails.Phone}
+          address={formData.personalDetails.Address}
         />
-        <Education />
+        <Education formData={formData} removeEducation={removeEducation} />
       </div>
     </div>
   );
