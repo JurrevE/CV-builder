@@ -3,10 +3,6 @@ import React from "react";
 export default function Education({ formData, removeEducation }) {
   const educationArray = formData.educationArray;
 
-  const removeEntry = (index) => {
-    removeEducation(index);
-  };
-
   return (
     <div className="educationSection">
       <div className="educationTitle">Education</div>

@@ -130,3 +130,23 @@
   grid-template-columns: 1fr 1fr;
   margin-top: 2rem;
 }
+
+.experienceTitle {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size: xx-large;
+  margin-top: 1rem;
+}
+
+.experienceEntry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+}
+
+.userInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
